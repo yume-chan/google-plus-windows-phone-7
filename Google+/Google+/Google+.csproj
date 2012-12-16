@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B44C3108-1667-457E-8376-BA661CE65567}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Google_Plus</RootNamespace>
+    <AssemblyName>Google+</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>Google_Plus.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Google_Plus.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Bin\Release\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Controls" />
+    <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="Microsoft.Xna.Framework" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xml" />
+    <Reference Include="mscorlib.extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CommentView.cs" />
+    <Compile Include="Controls\PostView.cs" />
+    <Compile Include="DataObject\APIs.cs" />
+    <Compile Include="DataObject\ObjectBase.cs" />
+    <Compile Include="LocalizedResources\i18n.en-US.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>i18n.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="LocalizedResources\i18n.zh-CN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>i18n.zh-CN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Main.xaml.cs">
+      <DependentUpon>Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NewPost.xaml.cs">
+      <DependentUpon>NewPost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Notifications.xaml.cs">
+      <DependentUpon>Notifications.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PostDetail.xaml.cs">
+      <DependentUpon>PostDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StreamPage.xaml.cs">
+      <DependentUpon>StreamPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\HighlightAnimatedImage.xaml.cs">
+      <DependentUpon>HighlightAnimatedImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Types\ThreadSafeObservableCollection.cs" />
+    <Compile Include="Types\AnimatedRotatePhoneApplicationPage﻿.cs" />
+    <Compile Include="Types\CommentView.xaml.cs">
+      <DependentUpon>CommentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Types\LightBox.xaml.cs">
+      <DependentUpon>LightBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Types\Media.cs" />
+    <Compile Include="Types\Notification.cs" />
+    <Compile Include="Types\OrientationLockableTransitionFrame.cs" />
+    <Compile Include="Types\Post.cs" />
+    <Compile Include="Types\PostView.xaml.cs">
+      <DependentUpon>PostView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Types\Comment.cs" />
+    <Compile Include="Types\Profile.cs" />
+    <Compile Include="Types\Request.cs" />
+    <Compile Include="Types\RichTextViewer.cs" />
+    <Compile Include="Types\Session.cs" />
+    <Compile Include="Types\VisibilityConverter.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <DesignData Include="SampleData\MainViewModelSampleData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </DesignData>
+    <Page Include="Pages\NewPost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Notifications.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PostDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StreamPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Types\CommentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Types\HighlightAnimatedImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Types\LightBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Types\PostView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LocalizedResources\i18n.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>i18n.en-US.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\appbar.next.rest.png" />
+    <Content Include="Images\appbar.overflowdots.png" />
+    <Content Include="Images\appbar.status.rest.png" />
+    <Content Include="Images\simon.notification.10.png" />
+    <Content Include="Images\simon.notification.2.png" />
+    <Content Include="Images\simon.notification.3.png" />
+    <Content Include="Images\simon.notification.4.png" />
+    <Content Include="Images\simon.notification.5.png" />
+    <Content Include="Images\simon.notification.6.png" />
+    <Content Include="Images\simon.notification.7.png" />
+    <Content Include="Images\simon.notification.8.png" />
+    <Content Include="Images\simon.notification.9.png" />
+    <Content Include="Images\simon.notification.1.png" />
+    <Content Include="Images\simon.notification.0.png" />
+    <Content Include="Images\simon.plusone.rest.png" />
+    <Content Include="Images\appbar.add.rest.png" />
+    <Content Include="Images\appbar.addcomment.rest.png" />
+    <Content Include="Images\appbar.addpicture.rest.png" />
+    <Content Include="Images\appbar.cancel.rest.png" />
+    <Content Include="Images\appbar.check.rest.png" />
+    <Content Include="Images\appbar.delete.rest.png" />
+    <Content Include="Images\appbar.linkto.rest.png" />
+    <Content Include="Images\appbar.refresh.rest.png" />
+    <Content Include="Images\appbar.send.text.rest.png" />
+    <Content Include="Images\appbar.social.retweet.rest.png" />
+    <Content Include="SplashScreenImage.jpg" />
+    <Resource Include="Images\icon.png" />
+    <Content Include="Images\simon.unplusone.rest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Coding4Fun.Phone.Controls\Coding4Fun.Phone.Controls.csproj">
+      <Project>{09AC45C7-27E8-4A39-B2C4-0031111595D5}</Project>
+      <Name>Coding4Fun.Phone.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ImageTools\ImageTools.Controls.Phone\ImageTools.Controls.Phone.csproj">
+      <Project>{30BEDEDE-3224-49FA-9340-8A82447619CB}</Project>
+      <Name>ImageTools.Controls.Phone</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ImageTools\ImageTools.IO.Gif.Phone\ImageTools.IO.Gif.Phone.csproj">
+      <Project>{58E343B0-5342-4266-8F2E-E1D0554B9D11}</Project>
+      <Name>ImageTools.IO.Gif.Phone</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ImageTools\ImageTools.Phone\ImageTools.Phone.csproj">
+      <Project>{5876DA9E-C3DF-4D27-835F-DF998658CB6E}</Project>
+      <Name>ImageTools.Phone</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Phone.Controls.Toolkit\Microsoft.Phone.Controls.Toolkit.csproj">
+      <Project>{0754458A-7AFC-463A-B27D-2F6980522119}</Project>
+      <Name>Microsoft.Phone.Controls.Toolkit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Newtonsoft.Json\Newtonsoft.Json.WindowsPhone.csproj">
+      <Project>{7A7F70AB-5C07-47ED-BDD2-ECC14DBACA5E}</Project>
+      <Name>Newtonsoft.Json.WindowsPhone</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WPExtensions\WPExtensions.csproj">
+      <Project>{564E0CE8-8BFE-45DA-B859-33504ACF7967}</Project>
+      <Name>WPExtensions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LocalizedResources\i18n.zh-CN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>i18n.zh-CN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>

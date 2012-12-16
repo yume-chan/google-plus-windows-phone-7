@@ -1,0 +1,139 @@
+﻿<local:AnimatedRotatePhoneApplicationPage
+    x:Class="Google_Plus.Pages.NewPost"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Google_Plus.Types"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:imageTools="clr-namespace:ImageTools.Controls;assembly=ImageTools.Controls" 
+    xmlns:WPE="clr-namespace:WPExtensions;assembly=WPExtensions"
+    xmlns:c4f="clr-namespace:Coding4Fun.Phone.Controls;assembly=Coding4Fun.Phone.Controls"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True"
+    Loaded="PhoneApplicationPage_Loaded"
+    BackKeyPress="Page_BackKeyPress">
+    
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,0">
+            <TextBlock x:Name="ApplicationTitle" Text="Share a new post" Style="{StaticResource PhoneTextLargeStyle}"/>
+        </StackPanel>
+
+        <ScrollViewer x:Name="ContentPanel" Grid.Row="1">
+            <StackPanel x:Name="PostContainer">
+                <c4f:ChatBubbleTextBox AcceptsReturn="True"
+                                       ChatBubbleDirection="UpperLeft"
+                                       Name="NewPostContent" 
+                                       TextChanged="NewPostContent_TextChanged" 
+                                       TextWrapping="Wrap"
+                                       VerticalAlignment="Top"
+                                       MinHeight="210"
+                                       MaxHeight="600"
+                                       InputScope="Text"/>
+                <toolkit:ListPicker x:Name="ShareRange">
+                    <sys:String>Public</sys:String>
+                    <sys:String>Extended circles</sys:String>
+                    <sys:String>Your circles</sys:String>
+                </toolkit:ListPicker>
+                <Image Margin="5,5">
+                    <Image.Source>
+                        <BitmapImage x:Name="PreviewBitmap"/>
+                    </Image.Source>
+                </Image>
+                <Grid x:Name="AddLinkPanel" Visibility="Collapsed">
+                    <TextBox Margin="0,0,95,0" Name="LinkLocation" InputScope="Url" KeyDown="LinkLocation_KeyDown"/>
+                    <Button Name="GetPreview" HorizontalAlignment="Right" Content="Add" Click="GetPreview_Click"/>
+                </Grid>
+                <StackPanel Margin="5,5">
+                    <Grid>
+                        <Image VerticalAlignment="Top"
+                               HorizontalAlignment="Left" 
+                               Width="64" 
+                               Height="64"
+                               Source="{Binding AuthorPhoto}"/>
+                        <StackPanel Margin="75,-7,0,0">
+                            <TextBlock Text="{Binding Author}" 
+                                       FontSize="26" 
+                                       Foreground="#FFA2A2FF" />
+                            <local:RichTextHelper Margin="-13,0,0,0" 
+                                                  FontSize="22" 
+                                                  TextWrapping="Wrap"
+                                                  Visibility="{Binding Converter={StaticResource BoolToVisibilityConverter}, Path=HasContent}"
+                                                  RichText="{Binding Content}" 
+                                                  ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+                            <StackPanel Margin="0,5,0,0">
+                                <Grid Visibility="{Binding Path=Media.HasLineOne, Converter={StaticResource BoolToVisibilityConverter}}">
+                                    <Image HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           MaxWidth="24" 
+                                           MaxHeight="24" 
+                                           Source="{Binding Media.Icon}"/>
+                                    <local:RichTextHelper TextWrapping="Wrap"
+                                                          Margin="17,0,0,0">
+                                        <local:RichTextHelper.Blocks>
+                                            <Paragraph>
+                                                <Hyperlink NavigateUri="{Binding Media.LinkLocation}">
+                                                    <Run FontWeight="Bold" 
+                                                         FontSize="24" 
+                                                         Foreground="#FFA2A2FF"
+                                                         Text="{Binding StringFormat='\{0\} »', Path=Media.LineOne}" />
+                                                </Hyperlink>
+                                            </Paragraph>
+                                        </local:RichTextHelper.Blocks>
+                                    </local:RichTextHelper>
+                                </Grid>
+                                <TextBlock TextWrapping="Wrap" 
+                                           Text="{Binding Media.LineTwo}" 
+                                           FontSize="22"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                    <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center" 
+                        SizeChanged="StackPanel_SizeChanged">
+                        <imageTools:AnimatedImage MaxHeight="300" 
+                                          Source="{Binding Media.ImageOne}" />
+                        <imageTools:AnimatedImage MaxHeight="300" 
+                                          Source="{Binding Media.ImageTwo}" />
+                    </StackPanel>
+                    <ListBox ItemsSource="{Binding Media.MoreImages}"
+                             ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                             ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <imageTools:AnimatedImage MaxHeight="100" 
+                                                          MaxWidth="100" 
+                                                          Stretch="UniformToFill" 
+                                                          Pause="True"
+                                                          Source="{Binding}" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+
+        <WPE:AdvancedApplicationBar x:Name="appbar">
+            <WPE:AdvancedApplicationBarIconButton IconUri="/Images/appbar.check.rest.png" Text="Share" IsEnabled="False" x:Name="appbarShare" Click="appbarShare_Click" />
+            <WPE:AdvancedApplicationBarIconButton IconUri="/Images/appbar.addpicture.rest.png" Text="Add Photo" x:Name="appbarAddPhoto" Click="appbarAddPhoto_Click"/>
+            <WPE:AdvancedApplicationBarIconButton IconUri="/Images/appbar.linkto.rest.png" Text="Add Link" x:Name="appbarAddLink" Click="appbarAddLink_Click"/>
+        </WPE:AdvancedApplicationBar>
+    </Grid>
+</local:AnimatedRotatePhoneApplicationPage>

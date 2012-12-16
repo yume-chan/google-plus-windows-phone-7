@@ -1,0 +1,20 @@
+﻿<local:MainViewModel 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Google_Plus" 
+    xmlns:type="clr-namespace:Google_Plus.Types">
+
+    <local:MainViewModel.Posts>
+        <type:Post AuthorPhoto="https://lh3.googleusercontent.com/-oikFyF1BDf4/AAAAAAAAAAI/AAAAAAAAmVo/bl1wwsAjLR0/s48-c-k/photo.jpg" Author="Simon Chan" TimeStamp="0:00" Client="Windows Phone" PlusOneCount="999" ReshareCount="999" CommentCount="999" ShareRange="All the world" HasContent="Collapsed">
+            <type:Post.Media LineOne="" LineTwo="Description" LinkLocation="http://www.baidu.com"/>
+            <type:Post.Content>
+                <Paragraph>
+                    <Run>
+                        test
+                    </Run>
+                </Paragraph>
+            </type:Post.Content>
+        </type:Post>
+    </local:MainViewModel.Posts>
+
+</local:MainViewModel>

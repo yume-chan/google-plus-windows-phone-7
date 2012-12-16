@@ -1,0 +1,44 @@
+﻿<local:AnimatedRotatePhoneApplicationPage
+    x:Class="Google_Plus.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Google_Plus.Types"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:WPE="clr-namespace:WPExtensions;assembly=WPExtensions"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True" 
+    BackKeyPress="AnimatedRotatePhoneApplicationPage_BackKeyPress">
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <TextBlock VerticalAlignment="Top" Margin="15,5,0,0" Text="Google+"/>
+        <TextBlock VerticalAlignment="Top" Margin="11,17,0,0" Text="Sign in" FontSize="64"/>
+        <ScrollViewer Margin="10,140,10,0" VerticalAlignment="Top">
+            <StackPanel>
+                <TextBlock Name="tbWrong" Margin="10" Text="The email or password is incorrect." Foreground="#E51400" Visibility="Collapsed"/>
+                <TextBlock Margin="10,0" Text="Email"/>
+                <TextBox InputScope="EmailSmtpAddress" Name="inEmail" KeyUp="inEmail_KeyUp" TextChanged="TextChanged"/>
+                <TextBlock Margin="10,0" Text="Password"/>
+                <PasswordBox Name="inPasswd" KeyUp="inPasswd_KeyUp" PasswordChanged="TextChanged" />
+                <CheckBox Name="cbStay" Content="Stay signed in" IsChecked="True" Checked="cbStay_Checked" Unchecked="cbStay_Unchecked" />
+                <TextBlock Name="tbMsg" Margin="10,-10,10,0" FontWeight="Bold" Text="App will save your email and password on this phone!" TextWrapping="Wrap"/>
+                <CheckBox Content="Sign in to Google Talk" IsEnabled="False"/>
+                <HyperlinkButton TargetName="_blank"
+                                 NavigateUri="http://www.google.com/intl/policies/privacy/"
+                                 Content="Google Privacy Policy"/>
+                <Button Content="Sign in" IsEnabled="False" Name="btnSignin" Click="btnSignin_Click"/>
+            </StackPanel>
+        </ScrollViewer>
+
+        <WPE:AdvancedApplicationBar>
+            <WPE:AdvancedApplicationBarIconButton IconUri="//Images/appbar.next.rest.png" Text="Sign in" x:Name="appbarSignin" Click="appbarSignin_Click" IsEnabled="False"/>
+        </WPE:AdvancedApplicationBar>
+    </Grid>
+</local:AnimatedRotatePhoneApplicationPage>

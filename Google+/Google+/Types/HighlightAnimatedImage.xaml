@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="Google_Plus.Types.HighlightAnimatedImage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:imageTools="clr-namespace:ImageTools.Controls;assembly=ImageTools.Controls" 
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+
+    <Border BorderThickness="5" 
+            x:Name="Border"
+            MaxWidth="100"
+            Height="100">
+        <imageTools:AnimatedImage 
+            VerticalAlignment="Center"
+            Stretch="UniformToFill" 
+            Pause="True"
+            Source="{Binding}" />
+    </Border>
+</UserControl>
